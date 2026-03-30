@@ -1,0 +1,17 @@
+{
+  "listen": "127.0.0.1",
+  "port": 8082,
+  "upstream": "api.anthropic.com",
+  "accounts": [
+    {
+      "name": "max-primary",
+      "token": "$ANTHROPIC_API_KEY"
+    },
+    {
+      "name": "max-secondary",
+      "token": "$ANTHROPIC_API_KEY_2"
+    }
+  ],
+  "fallback_key": "$ANTHROPIC_API_KEY",
+  "notify_cmd": null
+}
