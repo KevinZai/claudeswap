@@ -4,6 +4,8 @@
 
 Maximize your combined Anthropic rate limits by intelligently routing requests across multiple Claude MAX accounts. Zero dependencies. One command to start.
 
+<img width="816" height="458" alt="image" src="https://github.com/user-attachments/assets/a7f108c9-1374-4023-8b2f-1a3c5ee35ac5" />
+
 ```
 $ claudeswap
 
