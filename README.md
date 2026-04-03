@@ -4,7 +4,19 @@
 
 Maximize your combined Anthropic rate limits by intelligently routing requests across multiple Claude MAX accounts. Zero dependencies. One command to start.
 
-<img width="816" height="458" alt="image" src="https://github.com/user-attachments/assets/a7f108c9-1374-4023-8b2f-1a3c5ee35ac5" />
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/a7f108c9-1374-4023-8b2f-1a3c5ee35ac5" />
+
+
+## Why?
+
+Claude MAX subscriptions have **two rate limit windows** — a 5-hour sliding window and a 7-day sliding window. If you have multiple MAX accounts, you're leaving capacity on the table unless you route requests intelligently.
+
+ClaudeSwap sits between your tools and the Anthropic API, automatically picking the right account on every request:
+
+1. **Drain the account whose 7-day window expires soonest** — use it before the capacity resets and is wasted
+2. **Then the 5-hour window** as a tiebreaker
+3. **Then utilization** — prefer the account already being drained (finish it off)
+4. **On 429** — automatically retry with the other account, zero downtime
 
 ```
 $ claudeswap
@@ -26,17 +38,6 @@ $ claudeswap
     7d  ██░░░░░░░░░░░░░░░░░░   10.0%  resets in 2d 3h    ALLOWED
     claim: five_hour  │  84 reqs   │  last: 1:15:22 PM
 ```
-
-## Why?
-
-Claude MAX subscriptions have **two rate limit windows** — a 5-hour sliding window and a 7-day sliding window. If you have multiple MAX accounts, you're leaving capacity on the table unless you route requests intelligently.
-
-ClaudeSwap sits between your tools and the Anthropic API, automatically picking the right account on every request:
-
-1. **Drain the account whose 7-day window expires soonest** — use it before the capacity resets and is wasted
-2. **Then the 5-hour window** as a tiebreaker
-3. **Then utilization** — prefer the account already being drained (finish it off)
-4. **On 429** — automatically retry with the other account, zero downtime
 
 ## Quick Start
 
